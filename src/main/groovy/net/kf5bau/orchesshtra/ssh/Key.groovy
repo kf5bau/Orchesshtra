@@ -30,4 +30,7 @@ class Key {
   String getShift() { shift ?: value }
   String getCtrl() { ctrl ?: value }
   String getAlt() { alt ?: value }
+  
+  @Override
+  String toString() { value }
 }
