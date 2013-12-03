@@ -31,6 +31,7 @@ class TerminalCommandFactory {
     URL resource = classLoader.getResource(path)
     File directory = new File(resource.file)
     
+    // look only for class files that don't have dollar signs in the name
     directory.eachFileMatch( ~/^((?!\$).)*$/ ) {
       // remove .class extension and prefix with package name
       Class clazz = Class.forName("${packageName}.${it.name[0..-7]}")
