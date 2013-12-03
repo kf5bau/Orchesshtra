@@ -44,4 +44,3 @@ enum Colors {
   final Color color
   Colors(red, green, blue) { color = new Color(red, green, blue) }
 }
-

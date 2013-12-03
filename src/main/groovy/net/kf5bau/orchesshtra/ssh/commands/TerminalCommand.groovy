@@ -14,15 +14,15 @@
  * limitations under the License.
  */
 
-package net.kf5bau.orchesshtra.ssh
+package net.kf5bau.orchesshtra.ssh.commands
+
+import net.kf5bau.orchesshtra.ssh.Terminal
 
 /**
- * This class stores the character attributes for a specific character on the
- * screen.
  * 
  * @author Carl Worley <developer@kf5bau.net>
  */
-class Attribute {
-  Colors foreground = Colors.WHITE
-  Colors background = Colors.BLACK
+interface TerminalCommand {
+  boolean isCommand(String command, def parameters)
+  void execute(def parameters, Terminal terminal)
 }
