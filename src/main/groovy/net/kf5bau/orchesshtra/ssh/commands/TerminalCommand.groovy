@@ -19,10 +19,11 @@ package net.kf5bau.orchesshtra.ssh.commands
 import net.kf5bau.orchesshtra.ssh.Terminal
 
 /**
- * 
+ *
  * @author Carl Worley <developer@kf5bau.net>
  */
 interface TerminalCommand {
   boolean isCommand(String command, def parameters)
+
   void execute(def parameters, Terminal terminal)
 }

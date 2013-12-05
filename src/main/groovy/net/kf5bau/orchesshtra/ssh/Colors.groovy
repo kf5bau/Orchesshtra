@@ -20,7 +20,7 @@ import java.awt.Color
 
 /**
  * This class maps terminal color ordinals to Java AWT colors.
- * 
+ *
  * @author Carl Worley <developer@kf5bau.net>
  */
 enum Colors {
@@ -40,7 +40,7 @@ enum Colors {
   LIGHT_MAGENTA(255, 85, 255),
   YELLOW(255, 255, 85),
   LIGHT_WHITE(255, 255, 255)
-  
+
   final Color color
   Colors(red, green, blue) { color = new Color(red, green, blue) }
 }

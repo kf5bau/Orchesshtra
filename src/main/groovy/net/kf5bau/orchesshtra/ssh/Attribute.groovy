@@ -19,7 +19,7 @@ package net.kf5bau.orchesshtra.ssh
 /**
  * This class stores the character attributes for a specific character on the
  * screen.
- * 
+ *
  * @author Carl Worley <developer@kf5bau.net>
  */
 class Attribute {

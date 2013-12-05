@@ -18,7 +18,7 @@ package net.kf5bau.orchesshtra.ssh
 
 /**
  * This class wraps terminal key codes to simplify sending key presses.
- * 
+ *
  * @author Carl Worley <developer@kf5bau.net>
  */
 class Key {
@@ -26,11 +26,11 @@ class Key {
   String shift
   String ctrl
   String alt
-  
+
   String getShift() { shift ?: value }
   String getCtrl() { ctrl ?: value }
   String getAlt() { alt ?: value }
-  
+
   @Override
   String toString() { value }
 }

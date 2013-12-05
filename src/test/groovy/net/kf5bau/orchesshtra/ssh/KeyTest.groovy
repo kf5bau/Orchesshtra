@@ -47,31 +47,31 @@ class KeyTest {
   @After
   public void tearDown() {
   }
-  
+
   @Test
   public void value() {
     // create a new key without any modified values
     Key k = new Key(value: 'F1')
-    
+
     // check that the value property is what we were expecting
     assert 'F1' == k.value
-    
+
     // check that the toString returns the value we are expecting
     assert 'F1' == k.toString()
     assert 'F1' == "$k"
-    
+
     // when a key is created without modified values, the default value should
     // be returned for null modified property
     assert 'F1' == "$k.shift"
     assert 'F1' == "$k.ctrl"
     assert 'F1' == "$k.alt"
   }
-  
+
   @Test
   public void modifiers() {
     // create a new key with modified values
     Key k = new Key(value: 'F1', shift: 'S+F1', ctrl: 'C+F1', alt: 'A+F1')
-    
+
     // check that each of the properties returns the expected value
     assert 'F1' == "$k"
     assert 'S+F1' == "$k.shift"

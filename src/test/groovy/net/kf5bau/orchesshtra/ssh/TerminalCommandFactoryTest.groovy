@@ -52,15 +52,15 @@ class TerminalCommandFactoryTest {
   @After
   public void tearDown() {
   }
-  
+
   @Test
   public void escCommandFactory() {
     TerminalCommandFactory factory = new TerminalCommandFactory("esc")
-    
+
     assertNotNull factory
-    
-    assertNull factory.getCommand("Z", ["Z", "TOP"])
-    assertThat factory.getCommand("F", ["=", 0]), instanceOf(SetNormalForegroundColor.class)
-    assertThat factory.getCommand("G", ["=", 0]), instanceOf(SetNormalBackgroundColor.class)
+
+    assertNull factory.getCommand("Z", [ "Z", "TOP" ])
+    assertThat factory.getCommand("F", [ "=", 0 ]), instanceOf(SetNormalForegroundColor.class)
+    assertThat factory.getCommand("G", [ "=", 0 ]), instanceOf(SetNormalBackgroundColor.class)
   }
 }

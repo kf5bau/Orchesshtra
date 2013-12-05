@@ -17,28 +17,28 @@
 package net.kf5bau.orchesshtra.ssh.commands
 
 /**
- * 
+ *
  * @author Carl Worley <developer@kf5bau.net>
  */
 class TerminalCommandFactory {
-  private def commands = []
-  
+  private def commands = [ ]
+
   TerminalCommandFactory(String commandType) {
-    String packageName = "net.kf5bau.orchesshtra.ssh.commands.${commandType}"
-    String path = "net/kf5bau/orchesshtra/ssh/commands/${commandType}/"
-    
+    String packageName = "net.kf5bau.orchesshtra.ssh.commands.${ commandType }"
+    String path = "net/kf5bau/orchesshtra/ssh/commands/${ commandType }/"
+
     ClassLoader classLoader = Thread.currentThread().getContextClassLoader()
     URL resource = classLoader.getResource(path)
     File directory = new File(resource.file)
-    
+
     // look only for class files that don't have dollar signs in the name
-    directory.eachFileMatch( ~/^((?!\$).)*$/ ) {
+    directory.eachFileMatch(~/^((?!\$).)*$/) {
       // remove .class extension and prefix with package name
-      Class clazz = Class.forName("${packageName}.${it.name[0..-7]}")
+      Class clazz = Class.forName("${ packageName }.${ it.name[0..-7] }")
       commands << clazz.newInstance()
     }
   }
-  
+
   TerminalCommand getCommand(String command, def parameters) {
     commands.find { it.isCommand(command, parameters) }
   }

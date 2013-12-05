@@ -20,7 +20,7 @@ import net.kf5bau.orchesshtra.ssh.Terminal
 import net.kf5bau.orchesshtra.ssh.commands.TerminalCommand
 
 /**
- * 
+ *
  * @author Carl Worley <developer@kf5bau.net>
  */
 class SetNormalForegroundColor implements TerminalCommand {
@@ -28,9 +28,9 @@ class SetNormalForegroundColor implements TerminalCommand {
   boolean isCommand(String command, def parameters) {
     "F" == command && parameters.size() == 2 && "=" == parameters[0]
   }
-  
+
   @Override
   void execute(def parameters, Terminal terminal) {
-    
+
   }
 }

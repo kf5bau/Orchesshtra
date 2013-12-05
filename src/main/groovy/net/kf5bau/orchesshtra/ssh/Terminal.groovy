@@ -17,7 +17,7 @@
 package net.kf5bau.orchesshtra.ssh
 
 /**
- * 
+ *
  * @author Carl Worley <developer@kf5bau.net>
  */
 class Terminal {
