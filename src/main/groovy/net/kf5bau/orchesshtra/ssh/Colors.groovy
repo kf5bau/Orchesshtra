@@ -42,5 +42,6 @@ enum Colors {
   LIGHT_WHITE(255, 255, 255)
 
   final Color color
+
   Colors(red, green, blue) { color = new Color(red, green, blue) }
 }

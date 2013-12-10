@@ -28,7 +28,9 @@ class Key {
   String alt
 
   String getShift() { shift ?: value }
+
   String getCtrl() { ctrl ?: value }
+
   String getAlt() { alt ?: value }
 
   @Override
