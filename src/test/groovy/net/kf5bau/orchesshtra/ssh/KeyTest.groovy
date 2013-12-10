@@ -16,10 +16,6 @@
 
 package net.kf5bau.orchesshtra.ssh
 
-import org.junit.After
-import org.junit.AfterClass
-import org.junit.Before
-import org.junit.BeforeClass
 import org.junit.Test
 import static org.junit.Assert.*
 
@@ -28,43 +24,23 @@ import static org.junit.Assert.*
  * @author Carl Worley <developer@kf5bau.net>
  */
 class KeyTest {
-
-  public KeyTest() {
-  }
-
-  @BeforeClass
-  public static void setUpClass() {
-  }
-
-  @AfterClass
-  public static void tearDownClass() {
-  }
-
-  @Before
-  public void setUp() {
-  }
-
-  @After
-  public void tearDown() {
-  }
-
   @Test
   public void value() {
     // create a new key without any modified values
     Key k = new Key(value: 'F1')
 
     // check that the value property is what we were expecting
-    assert 'F1' == k.value
+    assertEquals k.value, 'F1'
 
     // check that the toString returns the value we are expecting
-    assert 'F1' == k.toString()
-    assert 'F1' == "$k"
+    assertEquals k.toString(), 'F1'
+    assertEquals "$k", 'F1'
 
     // when a key is created without modified values, the default value should
     // be returned for null modified property
-    assert 'F1' == "$k.shift"
-    assert 'F1' == "$k.ctrl"
-    assert 'F1' == "$k.alt"
+    assertEquals "$k.shift", 'F1'
+    assertEquals "$k.ctrl", 'F1'
+    assertEquals "$k.alt", 'F1'
   }
 
   @Test
@@ -73,9 +49,9 @@ class KeyTest {
     Key k = new Key(value: 'F1', shift: 'S+F1', ctrl: 'C+F1', alt: 'A+F1')
 
     // check that each of the properties returns the expected value
-    assert 'F1' == "$k"
-    assert 'S+F1' == "$k.shift"
-    assert 'C+F1' == "$k.ctrl"
-    assert 'A+F1' == "$k.alt"
+    assertEquals "$k", 'F1'
+    assertEquals "$k.shift", 'S+F1'
+    assertEquals "$k.ctrl", 'C+F1'
+    assertEquals "$k.alt", 'A+F1'
   }
 }

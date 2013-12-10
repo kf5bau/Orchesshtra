@@ -19,10 +19,6 @@ package net.kf5bau.orchesshtra.ssh
 import net.kf5bau.orchesshtra.ssh.commands.TerminalCommandFactory
 import net.kf5bau.orchesshtra.ssh.commands.csi.*
 
-import org.junit.After
-import org.junit.AfterClass
-import org.junit.Before
-import org.junit.BeforeClass
 import org.junit.Test
 
 import static org.junit.Assert.*
@@ -33,34 +29,20 @@ import static org.hamcrest.CoreMatchers.*
  * @author Carl Worley <developer@kf5bau.net>
  */
 class TerminalCommandFactoryTest {
-
-  public TerminalCommandFactoryTest() {
-  }
-
-  @BeforeClass
-  public static void setUpClass() {
-  }
-
-  @AfterClass
-  public static void tearDownClass() {
-  }
-
-  @Before
-  public void setUp() {
-  }
-
-  @After
-  public void tearDown() {
-  }
-
   @Test
   public void csiCommandFactory() {
     TerminalCommandFactory factory = new TerminalCommandFactory("csi")
 
     assertNotNull factory
 
+    // there is no zztop command
     assertNull factory.getCommand("Z", [ "Z", "TOP" ])
-    assertThat factory.getCommand("F", [ "=", 0 ]), instanceOf(SetNormalForegroundColor.class)
-    assertThat factory.getCommand("G", [ "=", 0 ]), instanceOf(SetNormalBackgroundColor.class)
+
+    // make sure we get the correct commands for each command sequence
+    assertThat factory.getCommand("F", [ "=", 0 ]),
+        instanceOf(SetNormalForegroundColor.class)
+
+    assertThat factory.getCommand("G", [ "=", 0 ]),
+        instanceOf(SetNormalBackgroundColor.class)
   }
 }
