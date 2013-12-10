@@ -16,42 +16,42 @@
 
 package net.kf5bau.orchesshtra.ssh
 
-import org.junit.Test
-import static org.junit.Assert.*
-
 /**
  *
  * @author Carl Worley <developer@kf5bau.net>
  */
-class KeyTest {
-  @Test
-  public void value() {
+class KeyTest extends GroovyTestCase {
+  void testValue() {
     // create a new key without any modified values
     Key k = new Key(value: 'F1')
 
     // check that the value property is what we were expecting
-    assertEquals k.value, 'F1'
+    assertEquals 'F1', k.value
 
     // check that the toString returns the value we are expecting
-    assertEquals k.toString(), 'F1'
-    assertEquals "$k", 'F1'
+    assertToString k, 'F1'
+    assertEquals "F1", "$k"
+    assertEquals "AF1B", "A${ k }B"
 
     // when a key is created without modified values, the default value should
     // be returned for null modified property
-    assertEquals "$k.shift", 'F1'
-    assertEquals "$k.ctrl", 'F1'
-    assertEquals "$k.alt", 'F1'
+    assertEquals 'F1', k.shift
+    assertEquals 'F1', k.ctrl
+    assertEquals 'F1', k.alt
   }
 
-  @Test
-  public void modifiers() {
+  public void testModifiers() {
     // create a new key with modified values
     Key k = new Key(value: 'F1', shift: 'S+F1', ctrl: 'C+F1', alt: 'A+F1')
 
     // check that each of the properties returns the expected value
-    assertEquals "$k", 'F1'
-    assertEquals "$k.shift", 'S+F1'
-    assertEquals "$k.ctrl", 'C+F1'
-    assertEquals "$k.alt", 'A+F1'
+    assertEquals 'S+F1', k.shift
+    assertEquals "AS+F1B", "A${ k.shift }B"
+
+    assertEquals 'C+F1', k.ctrl
+    assertEquals "AC+F1B", "A${ k.ctrl }B"
+
+    assertEquals 'A+F1', k.alt
+    assertEquals "AA+F1B", "A${ k.alt }B"
   }
 }

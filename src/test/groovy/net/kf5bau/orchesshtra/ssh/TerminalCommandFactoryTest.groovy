@@ -19,8 +19,6 @@ package net.kf5bau.orchesshtra.ssh
 import net.kf5bau.orchesshtra.ssh.commands.TerminalCommandFactory
 import net.kf5bau.orchesshtra.ssh.commands.csi.*
 
-import org.junit.Test
-
 import static org.junit.Assert.*
 import static org.hamcrest.CoreMatchers.*
 
@@ -28,9 +26,8 @@ import static org.hamcrest.CoreMatchers.*
  *
  * @author Carl Worley <developer@kf5bau.net>
  */
-class TerminalCommandFactoryTest {
-  @Test
-  public void csiCommandFactory() {
+class TerminalCommandFactoryTest extends GroovyTestCase {
+  public void testCsiCommandFactory() {
     TerminalCommandFactory factory = new TerminalCommandFactory("csi")
 
     assertNotNull factory
