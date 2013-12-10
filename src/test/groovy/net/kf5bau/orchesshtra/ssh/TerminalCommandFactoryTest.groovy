@@ -54,7 +54,7 @@ class TerminalCommandFactoryTest {
   }
 
   @Test
-  public void escCommandFactory() {
+  public void csiCommandFactory() {
     TerminalCommandFactory factory = new TerminalCommandFactory("csi")
 
     assertNotNull factory
