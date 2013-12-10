@@ -17,7 +17,7 @@
 package net.kf5bau.orchesshtra.ssh
 
 import net.kf5bau.orchesshtra.ssh.commands.TerminalCommandFactory
-import net.kf5bau.orchesshtra.ssh.commands.esc.*
+import net.kf5bau.orchesshtra.ssh.commands.csi.*
 
 import org.junit.After
 import org.junit.AfterClass
@@ -55,7 +55,7 @@ class TerminalCommandFactoryTest {
 
   @Test
   public void escCommandFactory() {
-    TerminalCommandFactory factory = new TerminalCommandFactory("esc")
+    TerminalCommandFactory factory = new TerminalCommandFactory("csi")
 
     assertNotNull factory
 

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package net.kf5bau.orchesshtra.ssh.commands.esc
+package net.kf5bau.orchesshtra.ssh.commands.csi
 
 import net.kf5bau.orchesshtra.ssh.Terminal
 import net.kf5bau.orchesshtra.ssh.commands.TerminalCommand
